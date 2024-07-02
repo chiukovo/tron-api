@@ -68,7 +68,7 @@ class TRC20Contract
      *
      * @var integer
      */
-    private int $feeLimit = 10;
+    private int $feeLimit = 30;
 
     /**
      * Base Tron object
@@ -389,5 +389,17 @@ class TRC20Contract
     public function cleanStr(string $str): string
     {
         return preg_replace('/[^\w.-]/', '', trim($str));
+    }
+
+    /**
+     * Set fee limit
+     *
+     * @param int $fee_limit
+     * @return TRC20Contract
+     */
+    public function setFeeLimit(int $fee_limit) : TRC20Contract
+    {
+        $this->feeLimit = $fee_limit;
+        return $this;
     }
 }
